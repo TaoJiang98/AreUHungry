@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- index.xhtml -->
+<!-- Allow the user to select a topic -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <h:head>
+      <title>Select Your Pizza</title>
+      <h:outputStylesheet name="style.css" library="css"/>
+   </h:head>
+   <h:body>
+      <h:form> 
+      <h1>Select Your Pizza</h1>
+         <h:selectOneRadio id="pizzaSelectOneRadio" required="true"
+            requiredMessage="Please choose a topic, then press Submit"
+            value="#{PizzaBean.selection}">
+            <f:selectItem itemValue="1" itemLabel="Pepperoni Pizza"/>
+            <f:selectItem itemValue="2" itemLabel="Sausage Pizza"/>
+            <f:selectItem itemValue="3" itemLabel="Cheese Pizza"/>
+         </h:selectOneRadio>
+         <p>
+             <h:graphicImage name="pepperoni.jpg" library="images" height="200"/>
+             <h:graphicImage name="sausage.jpg" library="images" height="200"/>
+             <h:graphicImage name="cheese.jpg" library="images" height="200"/>
+         </p>
+          <h:panelGrid columns="1">
+            <h:outputText value="Pizza Quantity:"/>
+            <h:inputText id="pizzaQuantityInputText" 
+               value="#{PizzaBean.pizzaQuantity}"
+               validatorMessage="Invalid Input">
+                         <f:validateRegex pattern=
+                            "(\d*)"/>
+            </h:inputText>
+            <h:message id = "pizzaQuantityMessage" for="pizzaQuantityInputText" styleClass="error"/>
+          </h:panelGrid>
+          <h:commandButton value="Next step: select your sides."
+                           action ="selectsides">
+          </h:commandButton>
+      </h:form>
+   </h:body>
+</html>
+
+<!--
+**********************************************************************
+* (C) Copyright 1992-2014 by Deitel & Associates, Inc. and           *
+* Pearson Education, Inc. All Rights Reserved.                       *
+*                                                                    *
+* DISCLAIMER: The authors and publisher of this book have used their *
+* best efforts in preparing the book. These efforts include the      *
+* development, research, and testing of the theories and programs    *
+* to determine their effectiveness. The authors and publisher make   *
+* no warranty of any kind, expressed or implied, with regard to      *
+* these programs or to the documentation contained in these books.   *
+* The authors and publisher shall not be liable in any event for     *
+* incidental or consequential damages in connection with, or         *
+* arising out of, the furnishing, performance, or use of these       *
+* programs.                                                          *
+**********************************************************************
+-->
+
